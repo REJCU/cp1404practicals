@@ -1,27 +1,22 @@
-""" Random amount of smiley faces between random number of smiley faces """
+""" Password check """
 
-import random
-
+MINIMUM_LENGTH = 4
 
 def main():
-        high, low = get_password()
-        while low > high:
-                print("Invalid Number")
-                low = int(input("Low: "))
-        random_number = random.randint(low, high)
-        print_password(random_number)
+        password = get_password()
+        print_password(password)
 
 
-def print_password(random_number):
-        print("*" * random_number)
+def print_password(password):
+        print("*" * len(password))
 
 
 def get_password():
-        low = int(input("Low: "))
-        high = int(input("High: "))
-        return high, low
+        password = input(f"Enter password to the length of {MINIMUM_LENGTH}: ")
+        while len(password) < MINIMUM_LENGTH:
+                password = input(f"Enter password to the length of {MINIMUM_LENGTH}")
+        return password
+
 
 
 main()
-
-
