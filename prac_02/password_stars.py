@@ -2,12 +2,26 @@
 
 import random
 
-low = int(input("Low: "))
-high = int(input("High: "))
-while low > high:
-        print("Invalid Number")
+
+def main():
+        high, low = get_password()
+        while low > high:
+                print("Invalid Number")
+                low = int(input("Low: "))
+        random_number = random.randint(low, high)
+        print_password(random_number)
+
+
+def print_password(random_number):
+        print("*" * random_number)
+
+
+def get_password():
         low = int(input("Low: "))
-random_number = random.randint(low, high)
-print("*" * random_number )
+        high = int(input("High: "))
+        return high, low
+
+
+main()
 
 
