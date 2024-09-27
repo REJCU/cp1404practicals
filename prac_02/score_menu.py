@@ -10,10 +10,10 @@ menu = """
 
 
 def main():
-    score = 1
+    score = 0
     print(menu)
     choice = input(">>> ").upper()
-    while choice != "q":
+    while choice != "Q":
         if choice == "G":
             score = valid_score()
         elif choice == "P":
