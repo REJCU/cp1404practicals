@@ -22,6 +22,4 @@ for i in range(row):
     print(" ".join(f"{number:2}" for number in quick_pick))
 
 
-# print(random.randint(MINIMUM_NUMBER, MAXIMUM_NUMBER))
-
 
