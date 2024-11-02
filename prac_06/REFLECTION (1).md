@@ -17,7 +17,7 @@ Consistency of sessions.
 
 ## What do you need to stop or change in your work for this subject overall so far?
 
-Writing more pseudocode
+Writing more pseudocode.
 
 ## What is one request you have or change you suggest for this subject and/or your IT degree overall?
 
