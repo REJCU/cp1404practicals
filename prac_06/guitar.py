@@ -1,8 +1,4 @@
-"""
-programming_languages
-Estimate: 60 minutes
-Actual:  20  minutes
-"""
+from codecs import replace_errors
 
 CURRENT_YEAR = 2022
 VINTAGE_AGE = 50
@@ -23,4 +19,6 @@ class Guitar:
 
 
     def is_vintage(self):
-        return self.get_age() >= VINTAGE_AGE
+        age = self.get_age()
+        if age >= VINTAGE_AGE:
+            return True
