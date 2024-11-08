@@ -1,4 +1,3 @@
-import csv
 from guitar import Guitar
 
 def main():
@@ -6,9 +5,14 @@ def main():
     in_file = open("guitars.csv", "r")
     for line in in_file:
         parts = line.strip().split(",")
-        guitar = Guitar(parts[0], parts[1], parts[2])
+        guitar = Guitar(parts[0],int(parts[1]), parts[2])
         guitars.append(guitar)
-        print(parts[0], parts[1], parts[2])
     in_file.close()
+
+    sorted_age = sorted(guitars)
+
+    for guitar in sorted_age:
+        print(guitar)
+
 
 main()
