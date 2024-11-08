@@ -20,7 +20,7 @@ def main():
         elif choice == "S":
             save_projects(projects)
         elif choice == "D":
-            pass
+            display_projects()
         elif choice == "F":
             pass
         elif choice == "A":
@@ -79,5 +79,9 @@ def save_projects(projects):
         projects.append(project_to_append)
         name = input("Name: ")
     out_file.close()
+
+
+def display_projects():
+    pass
 
 main()
