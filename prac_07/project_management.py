@@ -11,7 +11,26 @@ def main():
     print("Welcome to Pythonic Project Management")
     print(f"Loaded {len(projects)} from projects.txt")
     print(MENU)
-    choice = input(">>> ")
+    choice = input(">>> ").upper()
+    while choice != "Q":
+        if choice == "L":
+            pass
+        elif choice == "S":
+            pass
+        elif choice == "D":
+            pass
+        elif choice == "F":
+            pass
+        elif choice == "A":
+            pass
+        elif choice == "U":
+            pass
+        else:
+            print("Invalid menu choice")
+        print(MENU)
+        choice = input(">>> ").upper()
+
+    print("Thank you for using custom-built project management software.")
 
     # for project in projects:
     #     print(project)
