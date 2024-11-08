@@ -1,5 +1,6 @@
 import datetime
 
+from prac_03.capitalist_conrad import out_file
 from project import Project
 
 MENU = ("- (L)oad projects\n- (S)ave projects\n- (D)isplay projects"
@@ -15,9 +16,9 @@ def main():
     choice = input(">>> ").upper()
     while choice != "Q":
         if choice == "L":
-            load_projects()
+            load_projects(projects)
         elif choice == "S":
-            pass
+            save_projects(projects)
         elif choice == "D":
             pass
         elif choice == "F":
@@ -55,7 +56,7 @@ def get_projects(projects):
 
     """ User submitted projects """
 def load_projects(projects):
-    project_file = input("Enter project file name:  ")
+    project_file = input("Enter project file name: ")
     project_file = open(project_file, "r")
     project_file.readline()
     for line_of_project in project_file:
@@ -65,5 +66,18 @@ def load_projects(projects):
     project_file.close()
 
 
+def save_projects(projects):
+    name_of_projects_txt = input("File name: ")
+    open(name_of_projects_txt, 'w')
+    name = input("Name: ")
+    while name != "":
+        start_date = input("Start Date: ")
+        priority = input("Priority: ")
+        cost_estimate = input("Cost Estimate: ")
+        completion_percentage = input("Completion Percentage: ")
+        project_to_append = Project(name, start_date, priority, cost_estimate, completion_percentage)
+        projects.append(project_to_append)
+        name = input("Name: ")
+    out_file.close()
 
 main()
