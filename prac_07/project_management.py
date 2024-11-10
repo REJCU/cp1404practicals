@@ -2,6 +2,7 @@ import datetime
 
 from project import Project
 
+FILENAME = "projects.txt"
 
 MENU = ("- (L)oad projects\n- (S)ave projects\n- (D)isplay projects"
         "\n- (F)ilter projects\n- (A)dd new project\n- (U)pdate project\n- (Q)uit project")
@@ -25,7 +26,7 @@ def main():
         elif choice == "F":
             filter_by_date(projects)
         elif choice == "A":
-            pass
+            add_project(projects)
         elif choice == "U":
             pass
         else:
@@ -54,15 +55,17 @@ def get_projects(projects):
         projects.append(project)
     in_file.close()
 
-
     """ User submitted projects """
+
+
 def load_projects(projects):
     project_file = input("Enter project file name: ")
     project_file = open(project_file, "r")
     project_file.readline()
     for line_of_project in project_file:
         parts_of_project = line_of_project.strip().split("\t")
-        user_project = Project(parts_of_project[0],parts_of_project[1],parts_of_project[2],parts_of_project[3],parts_of_project[4])
+        user_project = Project(parts_of_project[0], parts_of_project[1], parts_of_project[2], parts_of_project[3],
+                               parts_of_project[4])
         projects.append(user_project)
     project_file.close()
 
@@ -89,8 +92,10 @@ def display_projects(projects):
             print(f"{project.name}, Start date:{project.start_date}, priority {project.priority}, "
                   f"Estimate: {project.cost_estimate}, Completion: {project.completion_percentage}")
         elif project.is_complete():
-            print(f"Completed Projects: \n{project.name}, Start date:{project.start_date}, priority {project.priority}, "
+            print(
+                f"Completed Projects: \n{project.name}, Start date:{project.start_date}, priority {project.priority}, "
                 f" Estimate: {project.cost_estimate}, Completion: {project.completion_percentage}")
+
 
 def filter_by_date(projects):
     """ Filters project with inputted date using datetime method  """
@@ -103,6 +108,20 @@ def filter_by_date(projects):
     for project in projects:
         if project.start_date < date_string:
             print(project)
+
+
+def add_project(projects):
+    with open(FILENAME, "a") as file:
+        name = input("Name: ")
+        while name != "":
+            start_date = input("d/m/yyyy")
+            priority = input("Priority: ")
+            cost_estimate = input("Cost: ")
+            completion_percentage = input("Completion Percentage: ")
+            project_append = Project(name, start_date, priority, cost_estimate, completion_percentage)
+            projects.append(project_append)
+            name = input("Name:")
+    file.close()
 
 
 main()
