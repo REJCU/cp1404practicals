@@ -23,7 +23,7 @@ def main():
         elif choice == "D":
             display_projects(projects)
         elif choice == "F":
-            pass
+            filter_by_date(projects)
         elif choice == "A":
             pass
         elif choice == "U":
@@ -92,7 +92,12 @@ def display_projects(projects):
             print(f"Completed Projects: \n{project.name}, Start date:{project.start_date}, priority {project.priority}, "
                 f" Estimate: {project.cost_estimate}, Completion: {project.completion_percentage}")
 
-def filter_by_date():
+def filter_by_date(projects):
+    date_string = "30/9/2022"
+
+    for project in projects:
+        if project.start_date < date_string:
+            print(project)
 
 
 main()
