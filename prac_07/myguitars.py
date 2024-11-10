@@ -1,5 +1,7 @@
 from guitar import Guitar
 
+FILENAME = "guitars.csv"
+
 def main():
     guitars = []
 
@@ -19,6 +21,9 @@ def main():
         guitars.append(guitar)
     in_file.close()
 
+    with open(FILENAME, "a") as out_file:
+        for guitar in guitars:
+            out_file.write(f"{guitar.name},{guitar.year},{guitar.cost}")
 
     sorted_age = sorted(guitars)
 
