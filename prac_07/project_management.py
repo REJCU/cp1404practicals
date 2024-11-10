@@ -1,4 +1,5 @@
 import datetime
+from random import choice
 
 from project import Project
 
@@ -28,7 +29,7 @@ def main():
         elif choice == "A":
             add_project(projects)
         elif choice == "U":
-            pass
+            update_project(projects)
         else:
             print("Invalid menu choice")
         print(MENU)
@@ -122,6 +123,22 @@ def add_project(projects):
             projects.append(project_append)
             name = input("Name:")
     file.close()
+
+
+def update_project(projects):
+    project_number = 0
+    for project in projects:
+        project_number += 1
+        print(f"{project_number}. {project}")
+
+    choice_of_project = int(input("Project Choice: "))
+    print(projects[choice_of_project - 1])
+
+    new_percentage = input("New Percentage: ")
+    new_priority = input("New Priority")
+
+    project_to_update = Project(priority=new_priority, completion_percentage=new_percentage)
+    projects[choice_of_project].append(project_to_update)
 
 
 main()
