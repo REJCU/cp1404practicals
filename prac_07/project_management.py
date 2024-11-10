@@ -93,7 +93,12 @@ def display_projects(projects):
                 f" Estimate: {project.cost_estimate}, Completion: {project.completion_percentage}")
 
 def filter_by_date(projects):
-    date_string = "30/9/2022"
+    """ Filters project with inputted date using datetime method  """
+    date_string = input("Show projects after the date (d/mm/yyyy): ")
+    date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+    # converts user input to a date object
+    date_string = date.strftime("%d/%m/%Y")
+    # converts from date object to string to be usable with < operator
 
     for project in projects:
         if project.start_date < date_string:
