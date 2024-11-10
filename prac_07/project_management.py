@@ -1,10 +1,11 @@
 import datetime
 
-from prac_03.capitalist_conrad import out_file
 from project import Project
+
 
 MENU = ("- (L)oad projects\n- (S)ave projects\n- (D)isplay projects"
         "\n- (F)ilter projects\n- (A)dd new project\n- (U)pdate project\n- (Q)uit project")
+
 
 def main():
     projects = []
@@ -20,7 +21,7 @@ def main():
         elif choice == "S":
             save_projects(projects)
         elif choice == "D":
-            display_projects()
+            display_projects(projects)
         elif choice == "F":
             pass
         elif choice == "A":
@@ -67,8 +68,7 @@ def load_projects(projects):
 
 
 def save_projects(projects):
-    name_of_projects_txt = input("File name: ")
-    open(name_of_projects_txt, 'w')
+    example_project = open(input('w'))
     name = input("Name: ")
     while name != "":
         start_date = input("Start Date: ")
@@ -78,10 +78,21 @@ def save_projects(projects):
         project_to_append = Project(name, start_date, priority, cost_estimate, completion_percentage)
         projects.append(project_to_append)
         name = input("Name: ")
-    out_file.close()
+    example_project.close()
 
 
-def display_projects():
-    pass
+def display_projects(projects):
+    print("Uncompleted projects:")
+    for project in projects:
+        if not project.is_complete():
+            # uses method made in the class to determine if task is completed
+            print(f"{project.name}, Start date:{project.start_date}, priority {project.priority}, "
+                  f"Estimate: {project.cost_estimate}, Completion: {project.completion_percentage}")
+        elif project.is_complete():
+            print(f"Completed Projects: \n{project.name}, Start date:{project.start_date}, priority {project.priority}, "
+                f" Estimate: {project.cost_estimate}, Completion: {project.completion_percentage}")
+
+def filter_by_date():
+
 
 main()
