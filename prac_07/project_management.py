@@ -1,5 +1,4 @@
 import datetime
-from random import choice
 
 from project import Project
 
