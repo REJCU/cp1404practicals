@@ -24,6 +24,7 @@ def main():
     with open(FILENAME, "a") as out_file:
         for guitar in guitars:
             out_file.write(f"{guitar.name},{guitar.year},{guitar.cost}")
+    out_file.close()
 
     sorted_age = sorted(guitars)
 
