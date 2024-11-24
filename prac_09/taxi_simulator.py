@@ -39,8 +39,13 @@ def choose_taxi(taxis, bill_of_taxi):
         number_of_taxi += 1
         print(f"{number_of_taxi} - {taxi}")
     chosen_taxi = int(input("Choose Taxi: "))
-    print(f"Bill to date: ${bill_of_taxi}")
-    return chosen_taxi
+
+    if chosen_taxi != taxis:
+        print("Invalid taxi choice")
+    else:
+        print(f"Bill to date: ${bill_of_taxi}")
+        return chosen_taxi
+
 
 def drive_taxi(current_taxi):
     """ uses classes to simulate driving """
